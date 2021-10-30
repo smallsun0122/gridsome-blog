@@ -5,7 +5,7 @@
         <h1 class="project-name">小太阳</h1>
         <h2 class="project-tagline">欢迎来到小太阳的博客</h2>
         <a href="https://github.com/smallsun0122" class="btn" target="_blank">GitHub主页</a>
-        <a href="https://github.com/GitHub-Laziji/vblog" class="btn" target="_blank">博客源码</a>
+        <a href="https://github.com/smallsun0122/gridsome-blog" class="btn" target="_blank">博客源码</a>
     </section>
 
      <!-- Main Content-->
