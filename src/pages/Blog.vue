@@ -1,10 +1,10 @@
 <template>
-  <Layout>
+  <Layout :id="$page.articles.totalCount">
     <div style="min-height: 600px" v-loading="loading">
         <el-card shadow="never" style="margin-bottom: 20px">
             <el-input placeholder="请输入关键字" v-model="searchKey" clearable style="width: 300px"></el-input>
             <el-button @click="search" icon="el-icon-search" style="margin-left: 10px" circle plain></el-button>
-            <el-button @click="$share()" style="margin-left: 10px" icon="el-icon-share" type="warning" plain circle></el-button>
+            <el-button style="margin-left: 10px" icon="el-icon-share" type="warning" plain circle></el-button>
             <el-button type="primary" icon="el-icon-edit" round plain style="float: right;" @click="goAdd">写博文</el-button>
         </el-card>
 
@@ -19,13 +19,13 @@
                                 </g-link>
                             </span>
                         </el-col>
-                        <el-col :span="8">
+                        <!-- <el-col :span="8">
                             <div style="text-align: right;">
                                 <el-button @click="$share('/user/blog/details/'+item.id)" style="padding: 3px 0" type="text" icon="el-icon-share"></el-button>
                                 <el-button @click="editBlog(index)" style="padding: 3px 0" type="text" icon="el-icon-edit"></el-button>
                                 <el-button @click="deleteBlog(index)" style="padding: 3px 0" type="text" icon="el-icon-delete"></el-button>
                             </div>
-                        </el-col>
+                        </el-col> -->
                     </el-row>
                 </div>
                 <div style="font-size: 0.9rem;line-height: 1.5;color: #606c71;">
@@ -53,6 +53,7 @@
 <page-query>
 query($page: Int) {
   articles:allStrapiArticles(perPage: 2, page: $page) @paginate {
+    totalCount
     pageInfo {
       totalPages
       currentPage

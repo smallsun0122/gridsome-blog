@@ -3,7 +3,7 @@
         <el-card shadow="never">
             <el-menu :default-active="active">
                 <el-menu-item v-for="item in constantRouterMap"
-                    :key="item.path" :index="item.path" @click="onSelect(item.path)">
+                    :key="item.path" :index="item.path" @click="onSelect(item.path, item.isId)">
                     <i :class="item.meta.icon"></i>
                     <span slot="title">{{item.meta.title}}</span> 
                 </el-menu-item>
@@ -22,11 +22,18 @@
 
 <script>
 export default {
+    props: {
+        id: {
+            type: Number,
+            default: 1
+        }
+    },
     data() {
         return {
             constantRouterMap: [
                 {
-                    path: 'new',
+                    path: 'blog/detail',
+                    isId: true,
                     meta: {
                         type: "user",
                         icon: 'el-icon-star-off',
@@ -68,9 +75,13 @@ export default {
         this.active = arr[1]
     },
     methods: {
-        onSelect(url) {
+        onSelect(url, isId) {
             console.log(url)
-            this.$router.push(`/${url}`)
+            let URL = url
+            if (isId) {
+                URL = `${URL}/${this.id}`
+            }
+            this.$router.push(`/${URL}`)
         },
         openTokenDialog() {
             this.$refs.tokenDialog.open(() => {

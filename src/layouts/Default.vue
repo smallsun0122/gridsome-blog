@@ -52,7 +52,7 @@
     <section class="main-content">
         <el-row>
             <el-col :span="6" style="padding-right:10px">
-                <sidebar></sidebar>
+                <sidebar :id="id"></sidebar>
             </el-col>
             <el-col :span="18" style="padding-left:10px">
                 <!-- 插槽内容 -->
@@ -91,19 +91,17 @@
   </div>
 </template>
 
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
-
 <script>
 import Sidebar from '~/components/Sidebar.vue'
 export default {
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'blog'
+  },
+  props: {
+    id: {
+      type: Number,
+      default: 1
+    }
   },
   components: {
     Sidebar
