@@ -6,11 +6,16 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import DefaultLayout from '~/layouts/Default.vue'
-import Article from '~/components/Article.vue'
 
 export default function (Vue, { router, head, isClient }) {
+  Vue.mixin({
+    data() {
+      return {
+        GRIDSOME_API_URL: process.env.GRIDSOME_API_URL
+      }
+    }
+  })
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
-  Vue.component('Article', Article)
   Vue.use(ElementUI)
 }

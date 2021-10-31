@@ -8,7 +8,7 @@
       </div>
       <el-row>
         <el-col :span="9" style="padding: 0px 10px 20px 0px">
-          <img :src="`http://localhost:1337${$page.social.avatar.url}`" style="width: 100%;border-radius:5px;">
+          <img :src="`${GRIDSOME_API_URL + $page.social.avatar.url}`" style="width: 100%;border-radius:5px;">
           <div style="padding: 10px">
               <font style="font-size: 26px;line-height: 40px;font-weight: 600">{{$page.social.name}}
                   <br>

@@ -15,7 +15,7 @@
                               <i class="el-icon-message"></i>&emsp;
                               <g-link :to="`/social/detail/${item.node.id}`" style=" text-decoration:none;cursor:pointer">TA的主页</g-link>
                               <br>
-                              <img :src="`http://localhost:1337${item.node.avatar.url}`" style="width: 100%;border-radius:5px;margin-top: 5px">
+                              <img :src="`${GRIDSOME_API_URL + item.node.avatar.url}`" style="width: 100%;border-radius:5px;margin-top: 5px">
                           </el-card>
                       </el-col>
                   </el-row>
@@ -42,7 +42,7 @@
                               <i class="el-icon-message"></i>&emsp;
                               <a :href="item.htmlUrl" target="_blank" style=" text-decoration:none;cursor:pointer">TA的主页</a>
                               <br>
-                              <img :src="`http://localhost:1337${item.node.avatar.url}`" style="width: 100%;border-radius:5px;margin-top: 5px">
+                              <img :src="`${GRIDSOME_API_URL + item.node.avatar.url}`" style="width: 100%;border-radius:5px;margin-top: 5px">
                           </el-card>
                       </el-col>
                   </el-row>
